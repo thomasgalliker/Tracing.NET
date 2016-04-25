@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1e8b82ab-0c81-4187-8fed-b163ab861f40</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Tracing.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ActionTracer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ActionTracerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DebugTracer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DebugTracerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EmptyTracer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EmptyTracerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDefaultTracerFactoryConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IoC\UseCacheAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ITracer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ITracerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TraceEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tracer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TracerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TracerExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TracerFactoryBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)packages.config" />
+  </ItemGroup>
+</Project>

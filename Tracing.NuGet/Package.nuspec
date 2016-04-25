@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Tracing</id>
+    <version>0.0.1-pre4</version>
+    <title>Tracing.NET - A simple Logger/Tracer abstraction</title>
+    <authors>Thomas Galliker</authors>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/thomasgalliker/Tracing.NET</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>An extensible logging/tracing framework for all major .Net platforms.</summary>
+    <description>Tracing.NET provides basic logging/tracing infrastructure such as an abstracted logger interface ITracer as well as platform specific tracer implementations.</description>
+    <tags>
+      xamarin pcl tracing tracer logging logger ITracer log trace
+      windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
+    </tags>
+    <releaseNotes>
+      0.0.1
+	  - Initial pre-release
+    </releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <language>en-US</language>
+    <dependencies>
+      <group>
+        <dependency id="Guards" version="1.0.10" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!--PCL-->
+    <file src="..\Tracing\bin\Release\Tracing.dll" target="lib\portable-net45+dnxcore50+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Tracing.dll" />
+    <file src="..\Tracing\bin\Release\Tracing.pdb" target="lib\portable-net45+dnxcore50+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Tracing.pdb" />
+    <file src="..\Tracing\bin\Release\Tracing.xml" target="lib\portable-net45+dnxcore50+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Tracing.xml" />
+
+    <!--Xamarin.Android-->
+    <file src="..\Tracing.Android\bin\Release\Tracing.dll" target="lib\monoandroid10\Tracing.dll" />
+    <file src="..\Tracing.Android\bin\Release\Tracing.pdb" target="lib\monoandroid10\Tracing.pdb" />
+    <file src="..\Tracing.Android\bin\Release\Tracing.xml" target="lib\monoandroid10\Tracing.xml" />
+    
+    <!--Xamarin.iOS Classic API-->
+    <file src="..\Tracing.iOS\bin\iPhone\Release\Tracing.dll" target="lib\monotouch10\Tracing.dll" />
+    <file src="..\Tracing.iOS\bin\iPhone\Release\Tracing.pdb" target="lib\monotouch10\Tracing.pdb" />
+    <file src="..\Tracing.iOS\bin\iPhone\Release\Tracing.xml" target="lib\monotouch10\Tracing.xml" />
+    
+    <!--Xamarin.iOS Unified API-->
+    <file src="..\Tracing.iOSUnified\bin\iPhone\Release\Tracing.dll" target="lib\xamarin.ios10\Tracing.dll" />
+    <file src="..\Tracing.iOSUnified\bin\iPhone\Release\Tracing.pdb" target="lib\xamarin.ios10\Tracing.pdb" />
+    <file src="..\Tracing.iOSUnified\bin\iPhone\Release\Tracing.xml" target="lib\xamarin.ios10\Tracing.xml" />
+    
+    <!--Windows Phone 8-->
+    <file src="..\Tracing.WindowsPhone8\Bin\Release\Tracing.dll" target="lib\wp8\Tracing.dll" />
+    <file src="..\Tracing.WindowsPhone8\Bin\Release\Tracing.pdb" target="lib\wp8\Tracing.pdb" />
+    <file src="..\Tracing.WindowsPhone8\Bin\Release\Tracing.xml" target="lib\wp8\Tracing.xml" />
+    
+    <!--Windows Phone 8.1-->
+    <file src="..\Tracing.WindowsPhone81\Bin\Release\Tracing.dll" target="lib\wpa81\Tracing.dll" />
+    <file src="..\Tracing.WindowsPhone81\Bin\Release\Tracing.pdb" target="lib\wpa81\Tracing.pdb" />
+    <file src="..\Tracing.WindowsPhone81\Bin\Release\Tracing.xml" target="lib\wpa81\Tracing.xml" />
+    
+    <!--Windows Store-->
+    <file src="..\Tracing.WindowsStore\Bin\Release\Tracing.dll" target="lib\win81\Tracing.dll" />
+    <file src="..\Tracing.WindowsStore\Bin\Release\Tracing.pdb" target="lib\win81\Tracing.pdb" />
+    <file src="..\Tracing.WindowsStore\Bin\Release\Tracing.xml" target="lib\win81\Tracing.xml" />
+
+    <!--Universal Windows Platform-->
+    <file src="..\Tracing.UWP\bin\Release\Tracing.dll" target="lib\uap10.0\Tracing.dll" />
+    <file src="..\Tracing.UWP\bin\Release\Tracing.pdb" target="lib\uap10.0\Tracing.pdb" />
+    <file src="..\Tracing.UWP\bin\Release\Tracing.xml" target="lib\uap10.0\Tracing.xml" />
+
+    <file src="tools\init.ps1" target="tools\init.ps1" />
+    <file src="tools\install.ps1" target="tools\install.ps1" />
+    <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
+  </files>
+</package>
