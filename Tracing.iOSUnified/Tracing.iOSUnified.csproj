@@ -37,6 +37,15 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Tracing.iOS\ConsoleTracer.cs">
+      <Link>ConsoleTracer.cs</Link>
+    </Compile>
+    <Compile Include="..\Tracing.iOS\ConsoleTracerFactory.cs">
+      <Link>ConsoleTracerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Tracing.iOS\DefaultTracerFactoryConfiguration.cs">
+      <Link>DefaultTracerFactoryConfiguration.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

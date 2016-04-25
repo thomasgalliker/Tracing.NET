@@ -37,6 +37,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ConsoleTracer.cs" />
+    <Compile Include="ConsoleTracerFactory.cs" />
+    <Compile Include="DefaultTracerFactoryConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
