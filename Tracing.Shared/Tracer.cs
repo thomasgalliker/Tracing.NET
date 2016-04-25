@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Threading;
 
 using Guards;
@@ -98,7 +100,32 @@ namespace Tracing
         internal static void Initialize()
         {
             defaultTracerFactory = Tracer.CreateDefaultFactory();
-            tracerFactory = null;
+
+            var defaultTracerFactoryConfiguration = GetDefaultTracerFactoryConfiguration();
+            if (defaultTracerFactoryConfiguration != null)
+            {
+                tracerFactory = defaultTracerFactoryConfiguration.GetDefaultTracerFactory();
+            }
+            else
+            {
+                tracerFactory = null;
+            }
+        }
+
+        private static IDefaultTracerFactoryConfiguration GetDefaultTracerFactoryConfiguration()
+        {
+            var allImplementationsOfDefaultTracerFactoryConfiguration = typeof(Tracer).GetTypeInfo().Assembly.DefinedTypes
+                   .Where(mytype => mytype.ImplementedInterfaces
+                       .Contains(typeof(IDefaultTracerFactoryConfiguration)));
+
+            var firstOrDefault = allImplementationsOfDefaultTracerFactoryConfiguration.FirstOrDefault();
+            if (firstOrDefault != null)
+            {
+                var defaultTracerFactoryConfiguration = (IDefaultTracerFactoryConfiguration)Activator.CreateInstance(firstOrDefault.AsType());
+                return defaultTracerFactoryConfiguration;
+            }
+
+            return null;
         }
     }
 }

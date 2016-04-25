@@ -56,6 +56,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tracing.Shared", "Tracing.S
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tracing.Shared.WinRT", "Tracing.Shared.WinRT\Tracing.Shared.WinRT.shproj", "{3EAF84AD-6C19-44EE-B773-5501A0398FBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracingSample.Netfx", "Samples\TracingSample.Netfx\TracingSample.Netfx.csproj", "{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Tracing.Shared\Tracing.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
@@ -64,6 +66,7 @@ Global
 		Tracing.Shared\Tracing.Shared.projitems*{1e8b82ab-0c81-4187-8fed-b163ab861f40}*SharedItemsImports = 13
 		Tracing.Shared\Tracing.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{5e2394a4-19cb-480b-b49e-88e298c57252}*SharedItemsImports = 4
+		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{5e2394a4-19cb-480b-b49e-88e298c57252}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
 		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{3eaf84ad-6c19-44ee-b773-5501a0398fbe}*SharedItemsImports = 13
@@ -865,6 +868,54 @@ Global
 		{5E2394A4-19CB-480B-B49E-88E298C57252}.Release|x64.Build.0 = Release|x64
 		{5E2394A4-19CB-480B-B49E-88E298C57252}.Release|x86.ActiveCfg = Release|x86
 		{5E2394A4-19CB-480B-B49E-88E298C57252}.Release|x86.Build.0 = Release|x86
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|ARM.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|x64.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|x64.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|x86.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Ad-Hoc|x86.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|ARM.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|ARM.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|x64.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|x64.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|x86.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.AppStore|x86.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|ARM.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|x64.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Debug|x86.Build.0 = Debug|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|ARM.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|ARM.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|iPhone.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|x64.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|x64.Build.0 = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|x86.ActiveCfg = Release|Any CPU
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -878,6 +929,7 @@ Global
 		{B81F47D4-39DB-40CB-8F6D-A38EF4E3EB0E} = {604C015D-F511-4589-89B1-D9CB6C09F074}
 		{10332C36-D054-41CA-8997-DA71A8CBC867} = {604C015D-F511-4589-89B1-D9CB6C09F074}
 		{33ABCB90-E021-4257-82D2-F030462C749C} = {604C015D-F511-4589-89B1-D9CB6C09F074}
+		{EBA91A8C-5AF6-4A86-A051-80E41F9E7373} = {38C5B814-36C7-4DE2-AD3E-C3085A8A1C9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .

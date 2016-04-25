@@ -108,19 +108,11 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Tracing.Netfx\ConsoleTracer.cs">
-      <Link>ConsoleTracer.cs</Link>
-    </Compile>
-    <Compile Include="..\Tracing.Netfx\ConsoleTracerFactory.cs">
-      <Link>ConsoleTracerFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\Tracing.Netfx\DefaultTracerFactoryConfiguration.cs">
-      <Link>DefaultTracerFactoryConfiguration.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Tracing.UWP.rd.xml" />
   </ItemGroup>
   <Import Project="..\Tracing.Shared\Tracing.Shared.projitems" Label="Shared" />
+  <Import Project="..\Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
