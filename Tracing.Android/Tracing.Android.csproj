@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Tracing.Netfx\ConsoleTracer.cs">
+      <Link>ConsoleTracer.cs</Link>
+    </Compile>
+    <Compile Include="..\Tracing.Netfx\ConsoleTracerFactory.cs">
+      <Link>ConsoleTracerFactory.cs</Link>
+    </Compile>
     <Compile Include="AndroidLogTracer.cs" />
     <Compile Include="AndroidLogTracerFactory.cs" />
     <Compile Include="DefaultTracerFactoryConfiguration.cs" />

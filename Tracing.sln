@@ -54,6 +54,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracing.UWP", "Tracing.UWP\
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tracing.Shared", "Tracing.Shared\Tracing.Shared.shproj", "{1E8B82AB-0C81-4187-8FED-B163AB861F40}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Tracing.Shared.WinRT", "Tracing.Shared.WinRT\Tracing.Shared.WinRT.shproj", "{3EAF84AD-6C19-44EE-B773-5501A0398FBE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Tracing.Shared\Tracing.Shared.projitems*{d7f3aa16-8ef1-4924-9e0a-dad4ab46b2eb}*SharedItemsImports = 4
@@ -63,8 +65,11 @@ Global
 		Tracing.Shared\Tracing.Shared.projitems*{5876144b-47dd-4c4e-b421-bc03f191b996}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{5e2394a4-19cb-480b-b49e-88e298c57252}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{7169373f-0b82-4e5d-9129-7cc3065b90fa}*SharedItemsImports = 4
+		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{3eaf84ad-6c19-44ee-b773-5501a0398fbe}*SharedItemsImports = 13
 		Tracing.Shared\Tracing.Shared.projitems*{bba4d7d7-7e41-4796-bc70-ddc13cfcfbc6}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
+		Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems*{ed9a4ca1-c04c-457d-9a2e-7995ccf12356}*SharedItemsImports = 4
 		Tracing.Shared\Tracing.Shared.projitems*{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

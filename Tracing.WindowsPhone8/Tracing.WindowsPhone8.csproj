@@ -84,6 +84,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Tracing.Netfx\ConsoleTracer.cs">
+      <Link>ConsoleTracer.cs</Link>
+    </Compile>
+    <Compile Include="..\Tracing.Netfx\ConsoleTracerFactory.cs">
+      <Link>ConsoleTracerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Tracing.Netfx\DefaultTracerFactoryConfiguration.cs">
+      <Link>DefaultTracerFactoryConfiguration.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
