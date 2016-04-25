@@ -174,5 +174,22 @@ namespace Tracing.Tests
 
             mocks.VerifyAll();
         }
+
+        [Fact]
+        public void TestCodeForReadme()
+        {
+            // Create an ITracer with 'this' as target name
+            ITracer tracer = Tracer.Create(this);
+
+            // Create an ITracer with MyClass as generic target name
+            ITracer tracerGeneric = Tracer.Create<MyClass>();
+
+            // Create an ITracer with "MyClass" string as target name
+            ITracer tracerStringName = Tracer.Create("MyClass");
+        }
+
+        public class MyClass
+        {
+        }
     }
 }
