@@ -3,7 +3,7 @@
 Tracing.NET provides basic logging/tracing infrastructure such as an abstracted logger interface ITracer as well as platform specific tracer implementations.
 
 ### Download and Install Tracing.NET
-This library is available on NuGet: https://www.nuget.org/packages/Tracing.NET/
+This library is available on NuGet: https://www.nuget.org/packages/Tracing/
 Use the following command to install Tracing.NET using NuGet package manager console:
 
     PM> Install-Package Tracing
