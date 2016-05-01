@@ -45,15 +45,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrossPlatformLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CrossPlatformLibrary.1.0.71\lib\MonoAndroid10\CrossPlatformLibrary.dll</HintPath>
+      <HintPath>..\..\packages\CrossPlatformLibrary.1.0.73\lib\MonoAndroid10\CrossPlatformLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CrossPlatformLibrary.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CrossPlatformLibrary.1.0.71\lib\MonoAndroid10\CrossPlatformLibrary.Platform.dll</HintPath>
+      <HintPath>..\..\packages\CrossPlatformLibrary.1.0.73\lib\MonoAndroid10\CrossPlatformLibrary.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.2.2\lib\monoandroid\FluentAssertions.Core.dll</HintPath>
+    <Reference Include="FluentAssertions.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentAssertions.4.5.0\lib\monoandroid\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FormsViewGroup, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -151,9 +151,9 @@
       <Project>{56a56f17-7de1-4ca1-9617-bf32e971ac84}</Project>
       <Name>Tracing.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Tracing\Tracing.csproj">
-      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
-      <Name>Tracing</Name>
+    <ProjectReference Include="..\IntegrationTests\IntegrationTests.csproj">
+      <Project>{10332c36-d054-41ca-8997-da71a8cbc867}</Project>
+      <Name>IntegrationTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -32,7 +32,7 @@ namespace IntegrationTests.iOS
             var bootstrapper = new Bootstrapper();
             bootstrapper.Startup();
 
-            //this.AddTestAssembly(typeof(SettingsServiceTests).Assembly);
+            //this.AddTestAssembly(typeof(TracerTests).Assembly);
 
 #if false
     // you can use the default or set your own custom writer (e.g. save to web site and tweet it ;-)

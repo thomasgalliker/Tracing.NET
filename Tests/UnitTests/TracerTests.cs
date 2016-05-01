@@ -26,7 +26,7 @@ namespace Tracing.Tests
             var factory = Tracer.Factory;
 
             // Assert
-            Assert.IsType<EmptyTracerFactory>(factory);
+            Assert.IsType<ConsoleTracerFactory>(factory);
         }
 
         [Fact]

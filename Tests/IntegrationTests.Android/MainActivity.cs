@@ -4,6 +4,8 @@ using Android.OS;
 
 using CrossPlatformLibrary.Bootstrapping;
 
+using Tracing.IntegrationTests;
+
 using Xunit.Runners.UI;
 
 namespace IntegrationTests.Android
@@ -17,7 +19,7 @@ namespace IntegrationTests.Android
             bootstrapper.Startup();
 
             // tests can be inside the main assembly
-            //this.AddTestAssembly(typeof(SettingsServiceTests).Assembly);
+            this.AddTestAssembly(typeof(TracerTests).Assembly);
             // or in any reference assemblies
             // AddTest (typeof (Your.Library.TestClass).Assembly);
 

@@ -83,9 +83,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Tracing\Tracing.csproj">
-      <Project>{a6fcef44-d2ba-42c7-b3cb-13667bcd7b54}</Project>
-      <Name>Tracing</Name>
+    <ProjectReference Include="..\..\Tracing.Netfx\Tracing.Netfx.csproj">
+      <Project>{bba4d7d7-7e41-4796-bc70-ddc13cfcfbc6}</Project>
+      <Name>Tracing.Netfx</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

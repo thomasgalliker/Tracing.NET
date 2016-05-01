@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Tracing.Shared.WinRT
+﻿namespace Tracing
 {
-    internal class DefaultTracerFactoryConfiguration : IDefaultTracerFactoryConfiguration
+    public class DefaultTracerFactoryConfiguration
     {
         public ITracerFactory GetDefaultTracerFactory()
         {

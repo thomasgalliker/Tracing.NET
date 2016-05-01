@@ -2,6 +2,8 @@
 
 using CrossPlatformLibrary.Bootstrapping;
 
+using Tracing.IntegrationTests;
+
 using Xunit.Runners.UI;
 
 namespace IntegrationTests.WindowsStore
@@ -13,7 +15,7 @@ namespace IntegrationTests.WindowsStore
             var bootstrapper = new Bootstrapper();
             bootstrapper.Startup();
 
-            //this.AddTestAssembly(typeof(SettingsServiceTests).GetTypeInfo().Assembly);
+            this.AddTestAssembly(typeof(TracerTests).GetTypeInfo().Assembly);
         }
     }
 }

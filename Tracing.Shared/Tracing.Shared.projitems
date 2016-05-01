@@ -16,7 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DebugTracerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracerFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDefaultTracerFactoryConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IoC\UseCacheAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracerFactory.cs" />

@@ -12,6 +12,9 @@ namespace TracingSample.Netfx
     {
         static void Main(string[] args)
         {
+            var bootstrapper = new TracingSampleBootstrapper();
+            bootstrapper.Startup();
+
             ITracer tracer = Tracer.Create(typeof(Program));
             tracer.Debug("Some debug message");
             tracer.Info("Some info message");

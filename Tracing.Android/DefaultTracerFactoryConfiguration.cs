@@ -1,6 +1,6 @@
 namespace Tracing
 {
-    internal class DefaultTracerFactoryConfiguration : IDefaultTracerFactoryConfiguration
+    internal class DefaultTracerFactoryConfiguration
     {
         public ITracerFactory GetDefaultTracerFactory()
         {

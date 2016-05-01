@@ -1,5 +1,7 @@
 ﻿using CrossPlatformLibrary.Bootstrapping;
 
+using Tracing.IntegrationTests;
+
 using Xunit.Runners.UI;
 
 namespace IntegrationTests.WindowsPhone8
@@ -16,7 +18,7 @@ namespace IntegrationTests.WindowsPhone8
             var bootstrapper = new Bootstrapper();
             bootstrapper.Startup();
 
-            //this.AddTestAssembly(typeof(SettingsServiceTests).Assembly);
+            this.AddTestAssembly(typeof(TracerTests).Assembly);
         }
     }
 }
