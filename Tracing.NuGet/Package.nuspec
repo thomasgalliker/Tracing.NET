@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Tracing</id>
-    <version>1.0.1-pre4</version>
+    <version>1.0.1</version>
     <title>Tracing.NET - A simple Logger/Tracer abstraction</title>
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,8 +12,8 @@
     <summary>An extensible logging/tracing framework for all major .Net platforms.</summary>
     <description>Tracing.NET provides basic logging/tracing infrastructure such as an abstracted logger interface ITracer as well as platform specific tracer implementations.</description>
     <tags>
-      xamarin pcl tracing tracer logging logger ITracer log trace
-      windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
+      tracing tracer logging logger ITracer log trace
+      xamarin pcl windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
     </tags>
     <releaseNotes>
       1.0.1
