@@ -1,8 +1,6 @@
 using System;
 using System.Globalization;
 
-using Guards;
-
 namespace Tracing
 {
     public class TraceEntry
@@ -37,7 +35,7 @@ namespace Tracing
         /// <remarks>The <paramref name="message"/> is formatted using the <see cref="CultureInfo.InvariantCulture"/>.</remarks>
         public TraceEntry(Category category, Exception exception, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNullOrEmpty(() => message);
+            Guard.ArgumentNotNullOrEmpty(nameof(message), message);
 
             this.Category = category;
             this.Exception = exception;

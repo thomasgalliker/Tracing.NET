@@ -1,7 +1,5 @@
 using System;
 
-using Guards;
-
 namespace Tracing
 {
     public class ConsoleTracer : TracerBase
@@ -10,7 +8,7 @@ namespace Tracing
 
         public ConsoleTracer(string name)
         {
-            Guard.ArgumentNotNullOrEmpty(() => name);
+            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
 
             this.name = name;
         }

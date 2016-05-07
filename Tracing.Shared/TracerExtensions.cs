@@ -2,8 +2,6 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-using Guards;
-
 namespace Tracing
 {
     [DebuggerStepThrough]
@@ -11,36 +9,36 @@ namespace Tracing
     {
         public static void Info(this ITracer tracer, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNull(() => tracer);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
 
             tracer.Write(Category.Information, message, arguments);
         }
 
         public static void Debug(this ITracer tracer, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNull(() => tracer);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
 
             tracer.Write(Category.Debug, message, arguments);
         }
 
         public static void Warning(this ITracer tracer, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNull(() => tracer);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
 
             tracer.Write(Category.Warning, message, arguments);
         }
 
         public static void Error(this ITracer tracer, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNull(() => tracer);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
 
             tracer.Write(Category.Error, message, arguments);
         }
 
         public static void Exception(this ITracer tracer, Exception exception, string message = null, params object[] arguments)
         {
-            Guard.ArgumentNotNull(() => tracer);
-            Guard.ArgumentNotNull(() => exception);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
+            Guard.ArgumentNotNull(nameof(exception), exception);
 
             if (message == null)
             {
@@ -62,7 +60,7 @@ namespace Tracing
         /// </summary>
         public static void FatalError(this ITracer tracer, Exception exception)
         {
-            Guard.ArgumentNotNull(() => tracer);
+            Guard.ArgumentNotNull(nameof(tracer), tracer);
 
             tracer.Write(Category.Fatal, exception, "FatalError");
         }

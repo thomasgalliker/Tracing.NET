@@ -2,8 +2,6 @@
 using System.Globalization;
 using System.Reflection;
 
-using Guards;
-
 namespace Tracing
 {
     public abstract class TracerFactoryBase : ITracerFactory
@@ -25,7 +23,7 @@ namespace Tracing
         /// <exception cref="ArgumentNullException">The <paramref name="type"/> parameter is <c>null</c>.</exception>
         public virtual ITracer Create(Type type)
         {
-            Guard.ArgumentNotNull(() => type);
+            Guard.ArgumentNotNull(nameof(type), type);
 
             string name = GetTypeNameAndAssemblyVersion(type);
             return this.Create(name);

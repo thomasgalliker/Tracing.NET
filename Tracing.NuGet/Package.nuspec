@@ -16,16 +16,12 @@
       windows phone winphone wp8 wpa81 win81 windowsphone android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
     </tags>
     <releaseNotes>
-      1.0.0
+      1.0.1
       - Initial release
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <language>en-US</language>
-    <dependencies>
-      <group>
-        <dependency id="Guards" version="1.0.10" />
-      </group>
-    </dependencies>
+    <dependencies/>
   </metadata>
   <files>
     <!--PCL-->

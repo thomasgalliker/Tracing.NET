@@ -82,15 +82,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Guards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac6aedb73a72f46e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guards.1.0.10\lib\wpa81\Guards.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
   <Import Project="..\Tracing.Shared\Tracing.Shared.projitems" Label="Shared" />
   <Import Project="..\Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

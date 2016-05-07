@@ -2,8 +2,6 @@ using System;
 
 using Android.Util;
 
-using Guards;
-
 namespace Tracing
 {
     public class AndroidLogTracer : TracerBase
@@ -12,8 +10,8 @@ namespace Tracing
 
         public AndroidLogTracer(string name)
         {
-            Guard.ArgumentNotNullOrEmpty(() => name);
-
+            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
+     
             this.name = name;
         }
 

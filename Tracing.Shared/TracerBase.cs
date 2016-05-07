@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Globalization;
 
-using Guards;
-
 namespace Tracing
 {
     public abstract class TracerBase : ITracer
@@ -20,7 +18,7 @@ namespace Tracing
         /// <remarks>The <paramref name="message"/> is formatted using the <see cref="CultureInfo.InvariantCulture"/>.</remarks>
         public void Write(Category category, string message, params object[] arguments)
         {
-            Guard.ArgumentNotNullOrEmpty(() => message);
+            Guard.ArgumentNotNullOrEmpty(nameof(message), message);
 
             if (this.IsCategoryEnabled(category))
             {
@@ -57,7 +55,7 @@ namespace Tracing
         /// <exception cref="ArgumentNullException">The <paramref name="entry"/> parameter is <c>null</c>.</exception>
         public void Write(TraceEntry entry)
         {
-            Guard.ArgumentNotNull(() => entry);
+            Guard.ArgumentNotNull(nameof(entry), entry);
 
             if (this.IsCategoryEnabled(entry.Category))
             {

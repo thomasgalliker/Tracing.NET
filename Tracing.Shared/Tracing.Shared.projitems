@@ -6,7 +6,7 @@
     <SharedGUID>1e8b82ab-0c81-4187-8fed-b163ab861f40</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Tracing.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Tracing</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ActionTracer.cs" />
@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DebugTracerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Guards.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IoC\UseCacheAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracerFactory.cs" />

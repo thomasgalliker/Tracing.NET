@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
 
-using Guards;
-
 namespace Tracing
 {
     /// <summary>
@@ -37,7 +35,7 @@ namespace Tracing
         /// <param name="factory">The <see cref="ITracerFactory" /> to use within the <see cref="Tracer" />.</param>
         public static void SetDefaultFactory(ITracerFactory factory)
         {
-            Guard.ArgumentNotNull(() => factory);
+            Guard.ArgumentNotNull(nameof(factory), factory);
 
             Interlocked.Exchange(ref defaultTracerFactory, factory);
         }
@@ -60,7 +58,7 @@ namespace Tracing
         /// <exception cref="ArgumentException">The <paramref name="tracerName" /> parameter is an empty string.</exception>
         public static ITracer Create(string tracerName)
         {
-            Guard.ArgumentNotNullOrEmpty(() => tracerName);
+            Guard.ArgumentNotNullOrEmpty(nameof(tracerName), tracerName);
 
             return Factory.Create(tracerName);
         }
@@ -74,7 +72,7 @@ namespace Tracing
         /// <exception cref="ArgumentNullException">The <paramref name="tracerType" /> parameter is <c>null</c>.</exception>
         public static ITracer Create(Type tracerType)
         {
-            Guard.ArgumentNotNull(() => tracerType);
+            Guard.ArgumentNotNull(nameof(tracerType), tracerType);
 
             return Factory.Create(tracerType);
         }

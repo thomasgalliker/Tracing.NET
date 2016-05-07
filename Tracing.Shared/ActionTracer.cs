@@ -1,7 +1,5 @@
 ﻿using System;
 
-using Guards;
-
 namespace Tracing
 {
     /// <summary>
@@ -15,8 +13,8 @@ namespace Tracing
 
         public ActionTracer(string name, Action<string, TraceEntry> forwardingAction)
         {
-            Guard.ArgumentNotNullOrEmpty(() => name);
-            Guard.ArgumentNotNull(() => forwardingAction);
+            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
+            Guard.ArgumentNotNull(nameof(forwardingAction), forwardingAction);
 
             this.name = name;
             this.forwardingAction = forwardingAction;
