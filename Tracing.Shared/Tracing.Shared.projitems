@@ -26,7 +26,4 @@
     <Compile Include="$(MSBuildThisFileDirectory)TracerExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TracerFactoryBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)packages.config" />
-  </ItemGroup>
 </Project>

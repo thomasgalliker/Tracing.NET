@@ -162,7 +162,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Tracing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Tracing.1.0.1-pre4\lib\win81\Tracing.dll</HintPath>
+      <HintPath>..\..\packages\Tracing.1.0.1\lib\win81\Tracing.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
