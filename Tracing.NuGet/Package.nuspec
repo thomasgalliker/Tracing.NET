@@ -18,6 +18,7 @@
     <releaseNotes>
       1.0.3
       - Bug fix in AndroidLogTracer: Add exception details to log output
+      - Several minor bug fixes
       
       1.0.2
       - Internal refactoring and cleanup
