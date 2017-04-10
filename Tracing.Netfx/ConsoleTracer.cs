@@ -2,32 +2,15 @@ using System;
 
 namespace Tracing
 {
-    public class ConsoleTracer : TracerBase
+    public class ConsoleTracer : StringTracer
     {
-        private readonly string name;
-
-        public ConsoleTracer(string name)
+        public ConsoleTracer(string name) : base(name)
         {
-            Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-
-            this.name = name;
         }
 
-        protected override void WriteCore(TraceEntry entry)
+        protected override void WriteCore(string traceMessage)
         {
-            if (entry.Exception == null)
-            {
-                Console.WriteLine("{0} - {1} - {2}", DateTime.Now, entry.Category, entry.Message);
-            }
-            else
-            {
-                Console.WriteLine("{0} - {1} - {2} - Exception: {3}", DateTime.UtcNow, entry.Category, entry.Message, entry.Exception);
-            }
-        }
-
-        public override bool IsCategoryEnabled(Category category)
-        {
-            return true;
+            Console.WriteLine(traceMessage);
         }
     }
 }

@@ -2,6 +2,8 @@ using System;
 
 using Android.Util;
 
+using Tracing.Extensions;
+
 namespace Tracing
 {
     public class AndroidLogTracer : TracerBase
@@ -11,14 +13,16 @@ namespace Tracing
         public AndroidLogTracer(string name)
         {
             Guard.ArgumentNotNullOrEmpty(nameof(name), name);
-     
+
             this.name = name;
         }
 
         protected override void WriteCore(TraceEntry entry)
         {
             var logPriority = ConvertCategoryToLogPriority(entry.Category);
-            Log.WriteLine(logPriority, this.name, entry.Message);
+
+            var traceString = entry.ToTraceString(this.name);
+            Log.WriteLine(logPriority, this.name, traceString);
         }
 
         public override bool IsCategoryEnabled(Category category)
@@ -53,7 +57,7 @@ namespace Tracing
                     break;
 
                 default:
-                    throw new InvalidOperationException(string.Format("ConvertCategoryToLogPriority could not map Category {0} to LogPriority enum.", category));
+                    throw new InvalidOperationException($"ConvertCategoryToLogPriority could not map Category {category} to LogPriority enum.");
             }
 
             return level;
