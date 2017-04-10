@@ -16,6 +16,20 @@ namespace Tracing
             Initialize();
         }
 
+        private static ITracerFactory CreateDefaultFactory()
+        {
+            return new EmptyTracerFactory();
+        }
+
+
+        internal static void Initialize()
+        {
+            SetDefaultFactory(CreateDefaultFactory());
+
+            var defaultTracerFactoryConfiguration = new DefaultTracerFactoryConfiguration();
+            SetFactory(defaultTracerFactoryConfiguration.GetDefaultTracerFactory());
+        }
+
         /// <summary>
         ///     Gets the configured <see cref="ITracerFactory" />.
         /// </summary>
@@ -91,19 +105,6 @@ namespace Tracing
         public static ITracer Create<T>([ValidatedNotNull] T tracerTarget = default(T))
         {
             return Factory.Create<T>();
-        }
-
-        private static ITracerFactory CreateDefaultFactory()
-        {
-            return new EmptyTracerFactory();
-        }
-
-        internal static void Initialize()
-        {
-            defaultTracerFactory = CreateDefaultFactory();
-
-            var defaultTracerFactoryConfiguration = new DefaultTracerFactoryConfiguration();
-            tracerFactory = defaultTracerFactoryConfiguration.GetDefaultTracerFactory();
         }
     }
 }
