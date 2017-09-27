@@ -1,5 +1,7 @@
 ﻿using System;
-
+using System.Threading;
+using FluentAssertions;
+using FluentAssertions.Common;
 using Xunit;
 
 namespace Tracing.Tests
@@ -7,82 +9,54 @@ namespace Tracing.Tests
     [Collection("Tracing")]
     public class TraceEntryTests
     {
-        [Fact]
-        public void NullOrEmptyMessageThrows()
+
+        [Theory]
+        [ClassData(typeof(FailedInitializations))]
+        public void ShouldSuccessfullyInitializeTraceEntry(Func<TraceEntry> createTraceEntry)
         {
-            Assert.Throws<ArgumentNullException>(() => new TraceEntry(Category.Debug, null));
-            Assert.Throws<ArgumentException>(() => new TraceEntry(Category.Debug, string.Empty));
+            //Arrange 
 
-            Assert.Throws<ArgumentNullException>(() => new TraceEntry(Category.Information, null));
-            Assert.Throws<ArgumentException>(() => new TraceEntry(Category.Information, string.Empty));
+            // Act
+            var traceEntry = createTraceEntry();
 
-            Assert.Throws<ArgumentNullException>(() => new TraceEntry(Category.Warning, null));
-            Assert.Throws<ArgumentException>(() => new TraceEntry(Category.Warning, string.Empty));
-
-            Assert.Throws<ArgumentNullException>(() => new TraceEntry(Category.Error, null));
-            Assert.Throws<ArgumentException>(() => new TraceEntry(Category.Error, string.Empty));
+            // Assert
+            traceEntry.Should().NotBeNull();
         }
 
-        [Fact]
-        public void InvalidMessageForFormattingThrows()
+        public class SuccessInitializations : TheoryData<Func<TraceEntry>>
         {
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Debug, "message{-1}", "arg0"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Information, "message{-1}", "arg0"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Warning, "message{-1}", "arg0"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Error, "message{-1}", "arg0"));
+            public SuccessInitializations()
+            {
+                this.Add(() => new TraceEntry(Category.Debug, null));
+                this.Add(() => new TraceEntry(Category.Debug, ""));
+                this.Add(() => new TraceEntry(Category.Information, null));
+                this.Add(() => new TraceEntry(Category.Information, ""));
+                this.Add(() => new TraceEntry(Category.Warning, null));
+                this.Add(() => new TraceEntry(Category.Warning, ""));
+                this.Add(() => new TraceEntry(Category.Error, null));
+                this.Add(() => new TraceEntry(Category.Error, ""));
+                this.Add(() => new TraceEntry(Category.Fatal, null));
+                this.Add(() => new TraceEntry(Category.Fatal, ""));
+            }
         }
 
-        [Fact]
-        public void LessArgumentsSuppliedAsInMessageDefiniedThrows()
+        [Theory]
+        [ClassData(typeof(FailedInitializations))]
+        public void ShouldFailToInitializeTraceEntry(Action createTraceEntry, Type expectedException)
         {
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<FormatException>(() => new TraceEntry(Category.Debug, "message{0}"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Debug, "message{0}{1}", "arg1"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Debug, "message{1}", "arg1"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<FormatException>(() => new TraceEntry(Category.Information, "message{0}"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Information, "message{0}{1}", "arg1"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Information, "message{1}", "arg1"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<FormatException>(() => new TraceEntry(Category.Warning, "message{0}"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Warning, "message{0}{1}", "arg1"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Warning, "message{1}", "arg1"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<FormatException>(() => new TraceEntry(Category.Error, "message{0}"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Error, "message{0}{1}", "arg1"));
-            Assert.Throws<FormatException>(() => new TraceEntry(Category.Error, "message{1}", "arg1"));
+            // Act // Assert
+            Assert.Throws(expectedException, createTraceEntry);
         }
 
-        [Fact]
-        public void MoreArgumentsSuppliedAsInMessageDefinedThrows()
+        public class FailedInitializations : TheoryData<Action, Type>
         {
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Debug, "message", "arg1"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Debug, "message", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Debug, "message{0}", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Debug, "message{1}", "arg1", "arg2"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Information, "message", "arg1"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Information, "message", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Information, "message{0}", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Information, "message{1}", "arg1", "arg2"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Warning, "message", "arg1"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Warning, "message", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Warning, "message{0}", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Warning, "message{1}", "arg1", "arg2"));
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Error, "message", "arg1"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Error, "message", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Error, "message{0}", "arg1", "arg2"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Error, "message{1}", "arg1", "arg2"));
-        }
-
-        [Fact]
-        public void NullExceptionNotThrows()
-        {
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Debug, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Information, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Warning, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => new TraceEntry(Category.Error, null, "message"));
+            public FailedInitializations()
+            {
+                this.Add(() => new TraceEntry(Category.Debug, "message{-1}", "arg0"), typeof(FormatException));
+                this.Add(() => new TraceEntry(Category.Debug, "message{0}{1}", "arg1"), typeof(FormatException));
+                this.Add(() => new TraceEntry(Category.Debug, "message{1}", "arg1"), typeof(FormatException));
+                this.Add(() => new TraceEntry(Category.Debug, "message{0}{1}", "arg1"), typeof(FormatException));
+            }
         }
 
         [Fact]
