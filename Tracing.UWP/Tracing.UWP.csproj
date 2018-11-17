@@ -109,10 +109,10 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultTracerFactoryConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Tracing.UWP.rd.xml" />
   </ItemGroup>
-  <Import Project="..\Tracing.Shared.WinRT\Tracing.Shared.WinRT.projitems" Label="Shared" />
   <Import Project="..\Tracing.Shared\Tracing.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

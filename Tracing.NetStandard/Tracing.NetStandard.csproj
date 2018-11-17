@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <RootNamespace>Tracing</RootNamespace>
+    <AssemblyName>Tracing</AssemblyName>
+  </PropertyGroup>
+
+  <Import Project="..\Tracing.Shared\Tracing.Shared.projitems" Label="Shared" />
+
+</Project>
