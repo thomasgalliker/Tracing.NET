@@ -65,9 +65,5 @@
     <file src="Tracing.NetStandard\bin\Release\netstandard1.0\Tracing.dll" target="lib\netstandard1.0\Tracing.dll" />
     <file src="Tracing.NetStandard\bin\Release\netstandard1.0\Tracing.pdb" target="lib\netstandard1.0\Tracing.pdb" />
     <file src="Tracing.NetStandard\bin\Release\netstandard1.0\Tracing.deps.json" target="lib\netstandard1.0\Tracing.deps.json" />
-
-    <file src="tools\init.ps1" target="tools\init.ps1" />
-    <file src="tools\install.ps1" target="tools\install.ps1" />
-    <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
   </files>
 </package>
