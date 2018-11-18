@@ -66,21 +66,17 @@ steps:
     projects: '**/*.Tests.csproj'
     arguments: ''
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: 'Pack NuGet PreRelease'
   inputs:
-    command: pack
-    packagesToPack: Tracing/Tracing.csproj
-    versioningScheme: byEnvVar
-    versionEnvVar: PackageVersionPre
+    command: custom
+    arguments: pack Package.nuspec -Version $(PackageVersionPre) -NoPackageAnalysis -outputdirectory $(Build.ArtifactStagingDirectory)\artifacts
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: 'Pack NuGet Prod'
   inputs:
-    command: pack
-    packagesToPack: Tracing/Tracing.csproj
-    versioningScheme: byEnvVar
-    versionEnvVar: PackageVersion
+    command: custom
+    arguments: pack Package.nuspec -Version $(PackageVersion) -NoPackageAnalysis -outputdirectory $(Build.ArtifactStagingDirectory)\artifacts
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
