@@ -33,11 +33,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracingSample.Netfx", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracingSample", "Samples\TracingSample\TracingSample.csproj", "{C25CA810-84AE-413E-BEDE-C77ED58B7D0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracing.NetStandard", "Tracing.NetStandard\Tracing.NetStandard.csproj", "{9AF2AE2F-6925-4D92-AA97-4367795DBF37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracing.NetStandard", "Tracing.NetStandard\Tracing.NetStandard.csproj", "{9AF2AE2F-6925-4D92-AA97-4367795DBF37}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FA43EFB-AC87-4BC1-9B86-96B7286D41ED}"
 	ProjectSection(SolutionItems) = preProject
+		build.yml = build.yml
 		Package.nuspec = Package.nuspec
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
@@ -672,7 +674,7 @@ Global
 		{C25CA810-84AE-413E-BEDE-C77ED58B7D0E} = {38C5B814-36C7-4DE2-AD3E-C3085A8A1C9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {47B1A1FE-15A5-4DE1-88C5-46254093AC20}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal

@@ -23,7 +23,7 @@ steps:
   displayName: 'Set Assembly Manifest Data'
   inputs:
     FileNames: |
-     Tracing.csproj
+     Tracing.NetStandard.csproj # Refactor to netstandard and use Tracing.csproj here
      AssemblyInfo.cs
     InsertAttributes: true
     Title: 'Tracing'
