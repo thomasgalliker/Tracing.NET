@@ -13,7 +13,6 @@
     <description>Tracing.NET provides basic logging/tracing infrastructure such as an abstracted logger interface ITracer as well as platform specific tracer implementations.</description>
     <tags>
       tracing tracer logging logger ITracer ILogger log trace abstraction
-      xamarin pcl android xamarin.forms xamarin.ios ios monoandroid monodroid monotouch
     </tags>
     <releaseNotes>
 2.0.0

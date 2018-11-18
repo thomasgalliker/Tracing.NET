@@ -11,7 +11,7 @@ namespace Tracing.Tests
     {
 
         [Theory]
-        [ClassData(typeof(FailedInitializations))]
+        [ClassData(typeof(SuccessInitializations))]
         public void ShouldSuccessfullyInitializeTraceEntry(Func<TraceEntry> createTraceEntry)
         {
             //Arrange 

@@ -13,7 +13,7 @@ namespace Tracing.IntegrationTests
     public class TracerTests
     {
         [Fact]
-        public void ShouldInstanciateTracer()
+        public void ShouldCreateTracer()
         {
             // Arrange
             Type targetType = typeof(TracerTests); 

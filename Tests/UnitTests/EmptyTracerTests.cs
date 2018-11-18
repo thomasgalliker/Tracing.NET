@@ -8,21 +8,17 @@ namespace Tracing.Tests
     public class EmptyTracerTests
     {
         [Fact]
-        public void WriteThrowsIfMessageIsNullOrEmpty()
+        public void WriteThrowsIfMessageIsNull()
         {
             EmptyTracer tracer = new EmptyTracer();
 
             Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Debug, null));
-            Assert.Throws<ArgumentException>(() => tracer.Write(Category.Debug, string.Empty));
 
             Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Information, null));
-            Assert.Throws<ArgumentException>(() => tracer.Write(Category.Information, string.Empty));
 
             Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Warning, null));
-            Assert.Throws<ArgumentException>(() => tracer.Write(Category.Warning, string.Empty));
 
             Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Error, null));
-            Assert.Throws<ArgumentException>(() => tracer.Write(Category.Error, string.Empty));
         }
 
         [Fact]
