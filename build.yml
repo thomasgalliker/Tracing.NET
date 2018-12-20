@@ -33,7 +33,7 @@ steps:
      Tracing.Autofac.csproj
      Tracing.Console.csproj
      Tracing.xunit.csproj
-     AssemblyInfo.cs
+     # AssemblyInfo.cs
     InsertAttributes: true
     Title: 'Tracing'
     Description: 'Tracing.NET - A simple Logger/Tracer abstraction'
