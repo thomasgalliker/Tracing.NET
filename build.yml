@@ -31,6 +31,9 @@ steps:
   inputs:
     FileNames: |
      Tracing.csproj
+     Tracing.Autofac.csproj
+     Tracing.Console.csproj
+     Tracing.xunit.csproj
      AssemblyInfo.cs
     InsertAttributes: true
     Title: 'Tracing'
