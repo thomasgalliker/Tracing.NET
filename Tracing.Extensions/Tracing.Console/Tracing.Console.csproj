@@ -44,7 +44,8 @@
 
   
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PackageReference Include="Tracing" Version="2.0.18338.1-pre" />
+    <!--<PackageReference Include="Tracing" Version="2.0.18338.1-pre" />-->
+    <ProjectReference Include="..\..\Tracing\Tracing.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
