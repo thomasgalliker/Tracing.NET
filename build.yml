@@ -1,4 +1,3 @@
-
 ####################################################################
 # VSTS Build Configuration, Version 1.2
 #
@@ -31,7 +30,7 @@ steps:
   inputs:
     FileNames: |
      Tracing.csproj
-     AssemblyInfo.cs
+     Tracing.UWP\**\AssemblyInfo.cs
     InsertAttributes: true
     Title: 'Tracing'
     Description: 'Tracing.NET - A simple Logger/Tracer abstraction'
