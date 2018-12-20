@@ -76,7 +76,7 @@ steps:
   displayName: 'Pack NuGet PreRelease'
   inputs:
     command: pack
-    packagesToPack: Tracing/Tracing.csproj
+    packagesToPack: Tracing/Tracing.csproj;Tracing.Extensions\Tracing.Autofac\Tracing.Autofac.csproj
     versioningScheme: byEnvVar
     versionEnvVar: PackageVersionPre
 
@@ -84,7 +84,7 @@ steps:
   displayName: 'Pack NuGet Prod'
   inputs:
     command: pack
-    packagesToPack: Tracing/Tracing.csproj
+    packagesToPack: Tracing/Tracing.csproj;Tracing.Extensions\Tracing.Autofac\Tracing.Autofac.csproj
     versioningScheme: byEnvVar
     versionEnvVar: PackageVersion
 
