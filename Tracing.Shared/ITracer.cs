@@ -4,6 +4,9 @@ using Tracing.IoC;
 
 namespace Tracing
 {
+    /// <summary>
+    /// ITracer is the abstraction of a logging framework.
+    /// </summary>
     [UseCache(false)]
     public interface ITracer
     {

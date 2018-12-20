@@ -4,6 +4,9 @@ using Tracing.Extensions;
 
 namespace Tracing
 {
+    /// <summary>
+    /// StringTracer transforms <see cref="TraceEntry"/> to <see cref="string"/>.
+    /// </summary>
     public abstract class StringTracer : TracerBase
     {
         private readonly string name;
