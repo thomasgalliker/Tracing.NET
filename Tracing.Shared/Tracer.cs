@@ -21,13 +21,13 @@ namespace Tracing
             return new EmptyTracerFactory();
         }
 
-
+        // ReSharper disable once MemberCanBePrivate.Global
         internal static void Initialize()
         {
             SetDefaultFactory(CreateDefaultFactory());
 
-            var defaultTracerFactoryConfiguration = new DefaultTracerFactoryConfiguration();
-            SetFactory(defaultTracerFactoryConfiguration.GetDefaultTracerFactory());
+            var defaultTracerFactoryConfiguration = DefaultTracerFactoryConfiguration.GetDefaultTracerFactory();
+            SetFactory(defaultTracerFactoryConfiguration);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Tracing
         ///     Sets the default tracer factory <see cref="ITracerFactory" /> to use within the <see cref="Tracer" />.
         /// </summary>
         /// <param name="factory">The <see cref="ITracerFactory" /> to use within the <see cref="Tracer" />.</param>
-        public static void SetDefaultFactory(ITracerFactory factory)
+        internal static void SetDefaultFactory(ITracerFactory factory)
         {
             Guard.ArgumentNotNull(nameof(factory), factory);
 
@@ -60,6 +60,9 @@ namespace Tracing
         /// <param name="factory">The <see cref="ITracerFactory" /> to use within the <see cref="Tracer" />.</param>
         public static void SetFactory(ITracerFactory factory)
         {
+            // TODO: Why not protecting SetFactory method?
+            //Guard.ArgumentNotNull(nameof(factory), factory);
+
             Interlocked.Exchange(ref tracerFactory, factory);
         }
 

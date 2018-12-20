@@ -7,7 +7,7 @@
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
     <projectUrl>https://github.com/thomasgalliker/Tracing.NET</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/Tracing.NET/master/Tracing.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/Tracing.NET/develop/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Autofac integration for Tracing.NET library</summary>
     <description>This integration pack fills the gap between Tracing.NET and Autofac.
@@ -20,7 +20,7 @@
       1.0.0
       - Initial release
     </releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <language>en-US</language>
     <dependencies>
       <group>

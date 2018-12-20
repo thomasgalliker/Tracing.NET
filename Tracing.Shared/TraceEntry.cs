@@ -1,8 +1,11 @@
 using System;
+using System.Diagnostics;
 using System.Globalization;
+using Tracing.Internal;
 
 namespace Tracing
 {
+    [DebuggerDisplay("TraceEntry: {this.Category} - this.Message")]
     public class TraceEntry
     {
         /// <inheritdoc />
@@ -27,14 +30,7 @@ namespace Tracing
         {
             this.Category = category;
             this.Exception = exception;
-            if (message != null && arguments != null && arguments.Length > 0)
-            {
-                this.Message = string.Format(CultureInfo.InvariantCulture, message, arguments);
-            }
-            else
-            {
-                this.Message = message ?? "";
-            }
+            this.Message = message.FormatArguments(arguments);
         }
 
         /// <summary>

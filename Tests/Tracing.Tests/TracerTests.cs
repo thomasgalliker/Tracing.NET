@@ -1,5 +1,5 @@
 ﻿using System;
-
+using FluentAssertions;
 using Moq;
 
 using Xunit;
@@ -26,15 +26,15 @@ namespace Tracing.Tests
             var factory = Tracer.Factory;
 
             // Assert
-            Assert.IsType<ConsoleTracerFactory>(factory);
+            factory.Should().BeOfType<DebugTracerFactory>();
         }
 
         [Fact]
         public void ShouldSetFactory()
         {
             // Arrange
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
 
             // Act
             Tracer.SetFactory(factoryMock.Object);
@@ -48,8 +48,8 @@ namespace Tracing.Tests
         public void ShouldReturnDefaultFactoryIfFactoryIsSetNull()
         {
             // Arrange
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
 
             Tracer.SetFactory(factoryMock.Object);
             Assert.Same(factoryMock.Object, Tracer.Factory);
@@ -66,8 +66,8 @@ namespace Tracing.Tests
         public void ShouldOverrideDefaultFactory()
         {
             // Arrange
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
             Tracer.SetFactory(null);
 
             // Act
@@ -82,9 +82,9 @@ namespace Tracing.Tests
         public void CreateWithNameCallsCreateOnFactory()
         {
             // Arrange
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create("Name")).Returns(tracerMock.Object);
 
@@ -100,9 +100,9 @@ namespace Tracing.Tests
         [Fact]
         public void CreateWithNameReturnsTracerReturnedByFactory()
         {
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create("Name")).Returns(tracerMock.Object);
 
@@ -116,9 +116,9 @@ namespace Tracing.Tests
         [Fact]
         public void CreateWithTypeCallsCreateOnFactory()
         {
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create(typeof(Type))).Returns(tracerMock.Object);
 
@@ -131,9 +131,9 @@ namespace Tracing.Tests
         [Fact]
         public void CreateWithTypeReturnsTracerReturnedByFactory()
         {
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create(typeof(Type))).Returns(tracerMock.Object);
 
@@ -147,9 +147,9 @@ namespace Tracing.Tests
         [Fact]
         public void CreateWithGenericTypeCallsCreateOnFactory()
         {
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create<Type>()).Returns(tracerMock.Object);
 
@@ -162,9 +162,9 @@ namespace Tracing.Tests
         [Fact]
         public void CreateWithGenericTypeReturnsTracerReturnedByFactory()
         {
-            MockRepository mocks = new MockRepository(MockBehavior.Strict);
-            Mock<ITracerFactory> factoryMock = mocks.Create<ITracerFactory>();
-            Mock<ITracer> tracerMock = mocks.Create<ITracer>();
+            var mocks = new MockRepository(MockBehavior.Strict);
+            var factoryMock = mocks.Create<ITracerFactory>();
+            var tracerMock = mocks.Create<ITracer>();
 
             factoryMock.Setup(factory => factory.Create<Type>()).Returns(tracerMock.Object);
 

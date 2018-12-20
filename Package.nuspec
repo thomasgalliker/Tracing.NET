@@ -7,13 +7,11 @@
     <authors>Thomas Galliker</authors>
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
     <projectUrl>https://github.com/thomasgalliker/Tracing.NET</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/Tracing.NET/master/Tracing.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/thomasgalliker/Tracing.NET/develop/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>An extensible logging/tracing framework for all major .Net platforms.</summary>
     <description>Tracing.NET provides basic logging/tracing infrastructure such as an abstracted logger interface ITracer as well as platform specific tracer implementations.</description>
-    <tags>
-      tracing tracer logging logger ITracer ILogger log trace abstraction
-    </tags>
+    <tags>tracing tracer logging logger ITracer ILogger log trace abstraction</tags>
     <releaseNotes>
 2.0.0
 - Added support for .Net Standard

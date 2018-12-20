@@ -43,22 +43,7 @@ namespace Tracing
         {
             if (this.IsCategoryEnabled(category))
             {
-                TraceEntry entry = new TraceEntry(category, exception, message, arguments);
-                this.WriteCore(entry);
-            }
-        }
-
-        /// <summary>
-        /// Traces the specified <paramref name="entry"/>.
-        /// </summary>
-        /// <param name="entry">The trace entry to trace.</param>
-        /// <exception cref="ArgumentNullException">The <paramref name="entry"/> parameter is <c>null</c>.</exception>
-        public void Write(TraceEntry entry)
-        {
-            Guard.ArgumentNotNull(nameof(entry), entry);
-
-            if (this.IsCategoryEnabled(entry.Category))
-            {
+                var entry = new TraceEntry(category, exception, message, arguments);
                 this.WriteCore(entry);
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Linq;
+using FluentAssertions;
 using Xunit;
 
 namespace Tracing.Tests
@@ -7,68 +8,57 @@ namespace Tracing.Tests
     [Collection("Tracing")]
     public class EmptyTracerTests
     {
-        [Fact]
-        public void WriteThrowsIfMessageIsNull()
+        [Theory]
+        [ClassData(typeof(AllCategoriesTestData))]
+        public void WriteThrowsIfMessageIsNull(Category category)
         {
-            EmptyTracer tracer = new EmptyTracer();
+            // Arrange
+            var tracer = new EmptyTracer();
 
-            Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Debug, null));
+            // Act
+            Action action = () => tracer.Write(category, message: null);
 
-            Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Information, null));
-
-            Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Warning, null));
-
-            Assert.Throws<ArgumentNullException>(() => tracer.Write(Category.Error, null));
+            // Assert
+            action.Should().Throw<ArgumentNullException>();
         }
 
-        [Fact]
-        public void WriteNotThrowsIfExceptionIsNull()
+        public class AllCategoriesTestData : TheoryData<Category>
         {
-            EmptyTracer tracer = new EmptyTracer();
-
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => tracer.Write(Category.Debug, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => tracer.Write(Category.Information, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => tracer.Write(Category.Warning, null, "message"));
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<Exception>(() => tracer.Write(Category.Error, null, "message"));
-        }
-
-        [Fact]
-        public void WriteThrowsIfEntryIsNull()
-        {
-            EmptyTracer tracer = new EmptyTracer();
-            Assert.Throws<ArgumentNullException>(() => tracer.Write(null));
-        }
-
-        [Fact]
-        public void IsCategoryEnabledAlwaysReturnsFalse()
-        {
-            EmptyTracer tracer = new EmptyTracer();
-            bool isEnabled = tracer.IsCategoryEnabled(Category.Debug);
-            Assert.False(isEnabled);
-
-            isEnabled = tracer.IsCategoryEnabled(Category.Information);
-            Assert.False(isEnabled);
-
-            isEnabled = tracer.IsCategoryEnabled(Category.Warning);
-            Assert.False(isEnabled);
-
-            isEnabled = tracer.IsCategoryEnabled(Category.Error);
-            Assert.False(isEnabled);
-        }
-
-        [Fact]
-        public void WriteCoreNotThrowsIfEntryIsNull()
-        {
-            EmptyTracerMock tracer = new EmptyTracerMock();
-            // TODO GATH: Remove? // TODO GATH: Remove?? Assert.IsNotThrown<ArgumentException>(() => tracer.WriteCoreMethod(null));
-        }
-
-        public class EmptyTracerMock : EmptyTracer
-        {
-            public void WriteCoreMethod(TraceEntry entry)
+            public AllCategoriesTestData()
             {
-                this.WriteCore(entry);
+                foreach (var value in Enum.GetValues(typeof(Category)).OfType<Category>())
+                {
+                    this.Add(value);
+                }
             }
+        }
+
+        [Theory]
+        [ClassData(typeof(AllCategoriesTestData))]
+        public void WriteNotThrowsIfExceptionIsNull(Category category)
+        {
+            // Arrange
+            var tracer = new EmptyTracer();
+
+            // Act
+            Action action = () => tracer.Write(category, exception: null, message: "message");
+
+            // Assert
+            action.Should().NotThrow();
+        }
+
+        [Theory]
+        [ClassData(typeof(AllCategoriesTestData))]
+        public void IsCategoryEnabledAlwaysReturnsFalse(Category category)
+        {
+            // Arrange
+            var tracer = new EmptyTracer();
+
+            // Act
+            var isCategoryEnabled = tracer.IsCategoryEnabled(category);
+
+            // Assert
+            isCategoryEnabled.Should().BeFalse();
         }
     }
 }

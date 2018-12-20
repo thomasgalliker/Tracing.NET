@@ -1,10 +1,10 @@
 namespace Tracing
 {
-    public class DefaultTracerFactoryConfiguration
+    internal static class DefaultTracerFactoryConfiguration
     {
-        public ITracerFactory GetDefaultTracerFactory()
+        internal static ITracerFactory GetDefaultTracerFactory()
         {
-            return null;
+            return new DebugTracerFactory();
         }
     }
 }
