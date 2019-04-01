@@ -12,13 +12,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)ActionTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ActionTracerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Category.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ExceptionExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\MessageFormatter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StringTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DebugTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DebugTracerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyTracerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TraceEntryExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Guards.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Guards.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IoC\UseCacheAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ITracerFactory.cs" />

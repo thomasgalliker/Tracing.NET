@@ -11,6 +11,11 @@ namespace Tracing
         private readonly Action<string, TraceEntry> forwardingAction;
         private readonly string name;
 
+        public ActionTracer(object target, Action<string, TraceEntry> forwardingAction)
+            : this(target.GetType().Name, forwardingAction)
+        {
+        }
+
         public ActionTracer(string name, Action<string, TraceEntry> forwardingAction)
         {
             Guard.ArgumentNotNullOrEmpty(nameof(name), name);

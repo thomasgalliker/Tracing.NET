@@ -9,6 +9,7 @@ namespace Tracing.IoC
     /// Every attempt to construct a dependency of a marked interface will end up
     /// in creating a new object from scratch.
     /// </summary>
+    [Obsolete("Can be removed. This library does not support SimpleIoc integration.")]
     [AttributeUsage(AttributeTargets.Interface)]
     public sealed class UseCacheAttribute : Attribute
     {
