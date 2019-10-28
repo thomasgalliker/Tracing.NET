@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>Tracing.NET - DryIoc Integration</AssemblyTitle>
+    <Description>Extends Tracing.NET with DryIoc modularity.</Description>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Version>1.0.0</Version>
+    <Authors>Thomas Galliker</Authors>
+    <TargetFrameworks>net45;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <AssemblyName>Tracing.DryIoc</AssemblyName>
+    <PackageId>Tracing.DryIoc</PackageId>
+    <PackageTags>tracing tracer logging logger ITracer ILogger log trace abstraction DryIoc module</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/thomasgalliker/Tracing.NET/develop/icon.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/thomasgalliker/Tracing.NET</PackageProjectUrl>
+    <PackageLicenseUrl>http://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/thomasgalliker/Tracing.NET</RepositoryUrl>
+    <SignAssembly>True</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <Company>superdev GmbH</Company>
+    <Product>Tracing.DryIoc</Product>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RootNamespace>Tracing.DryIoc</RootNamespace>
+    <PackageReleaseNotes>2.0.0
+- Initial release</PackageReleaseNotes>
+    <Copyright>Copyright 2019</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DryIoc.dll" Version="[4.0.0,)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <ProjectReference Include="..\..\Tracing\Tracing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <ProjectReference Include="..\..\Tracing\Tracing.csproj" />
+  </ItemGroup>
+
+</Project>
