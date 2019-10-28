@@ -8,7 +8,7 @@ Use the following command to install Tracing.NET using NuGet package manager con
 
     PM> Install-Package Tracing
 
-You can use this library in any .Net project which is compatible to PCL (e.g. Xamarin Android, iOS, Windows Phone, Windows Store, Universal Apps, etc.)
+You can use this library in any .Net project which is compatible to .NET Framework 4.5+ and .NET Standard 
 
 ### API Usage
 ITracer is the ultimate abstraction of the tracing implementation. 
@@ -30,4 +30,4 @@ ITracer tracerStringName = Tracer.Create("MyClass");
 Instead of using the static ```Tracer```, it is recommended to use a dependency injection framework in order to create and inject ITracer instances into your classes.
 
 ### License
-This project is Copyright &copy; 2018 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
+This project is Copyright &copy; 2019 [Thomas Galliker](https://ch.linkedin.com/in/thomasgalliker). Free for non-commercial use. For commercial use please contact the author.
