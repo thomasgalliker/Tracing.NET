@@ -36,7 +36,7 @@
     <PackageReleaseNotes>2.0.0
 - Initial release
 </PackageReleaseNotes>
-    <Copyright>Copyright 2018</Copyright>
+    <Copyright>Copyright 2019</Copyright>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
