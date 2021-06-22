@@ -35,6 +35,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Tracing.Shared\Tracing.Shared.projitems*{1e8b82ab-0c81-4187-8fed-b163ab861f40}*SharedItemsImports = 13
+		Tracing.Shared\Tracing.Shared.projitems*{3df2e5d9-6aa9-4c81-8a86-2f351dee6220}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -412,7 +413,7 @@ Global
 		{E14FDD65-EBF8-4DE4-8BEB-1653BC52CA15} = {A1466615-DF98-4C80-B3DF-5EA48CAED8C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {47B1A1FE-15A5-4DE1-88C5-46254093AC20}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {47B1A1FE-15A5-4DE1-88C5-46254093AC20}
 	EndGlobalSection
 EndGlobal
