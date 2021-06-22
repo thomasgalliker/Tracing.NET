@@ -31,9 +31,6 @@
     <EmbeddedResource Include="Resources\**\*.*" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Tracing.Extensions\Tracing.Autofac\Tracing.Autofac.csproj" />
     <ProjectReference Include="..\..\Tracing.Extensions\Tracing.DryIoc\Tracing.DryIoc.csproj" />
     <ProjectReference Include="..\..\Tracing.Extensions\Tracing.xunit\Tracing.xunit.csproj" />
