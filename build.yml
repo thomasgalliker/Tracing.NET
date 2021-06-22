@@ -107,7 +107,7 @@ steps:
     projects: '**/*.Tests.csproj'
     arguments: ''
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'Pack NuGet PreRelease'
   inputs:
     command: pack
@@ -115,7 +115,7 @@ steps:
     versioningScheme: byEnvVar
     versionEnvVar: PackageVersionPre
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'Pack NuGet Prod'
   inputs:
     command: pack
