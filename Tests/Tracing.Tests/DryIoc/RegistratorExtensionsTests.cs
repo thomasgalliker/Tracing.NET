@@ -41,9 +41,9 @@ namespace Tracing.Tests.DryIoc
             myParentClass.Should().BeOfType<MyParentClass>();
 
             entries.Should().HaveCount(2);
-            entries[0].Key.Should().Contain("MyParentClass[1.0.0.0]");
+            entries[0].Key.Should().Match("*MyParentClass[*]");
             entries[0].Value.Message.Should().Contain("Parent does something...");
-            entries[1].Key.Should().Contain("MyChildClass[1.0.0.0]");
+            entries[1].Key.Should().Match("*MyChildClass[*]");
             entries[1].Value.Message.Should().Contain("Child does something...");
         }
 

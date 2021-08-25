@@ -38,7 +38,7 @@ namespace Tracing.Tests.Autofac
             // Assert
             myClass.Should().BeOfType<MyClass>();
             entries.Should().HaveCount(1);
-            entries[0].Key.Should().Contain("MyClass[1.0.0.0]");
+            entries[0].Key.Should().Match("*MyClass[*]");
             entries[0].Value.Message.Should().Contain("Do something...");
         }
 

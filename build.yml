@@ -1,61 +1,103 @@
 ####################################################################
-# VSTS Build Configuration, Version 1.2
+# VSTS Build Configuration, Version 1.4
 #
-# (c)2018 superdev GmbH
+# (c)2021 superdev GmbH
 ####################################################################
 
-name: 2.2.$(date:yy)$(DayOfYear).$(rev:rr)
-  
-queue:
-  name: Hosted VS2017
-  demands: 
-  - msbuild
-  - visualstudio
-  - vstest
+name: $[format('{0}', variables['buildName'])]
+
+pool:
+  vmImage: 'windows-2019'
 
 trigger:
-- master
-- develop
-- release/*
+  branches:
+    include:
+    - master
+    - develop
+    - feature/*
+    - bugfix/*
+
+  paths:
+    exclude:
+    - README.md
+    - Images/*
+    - Samples/*
 
 variables:
   solution: 'Tracing.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  buildVersionPostfix: '-pre'
+  majorVersion: 2
+  minorVersion: 4
+  patchVersion: $[counter(format('{0}.{1}', variables.majorVersion, variables.minorVersion), 0)]
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    # Versioning: 1.0.0
+    semVersion: $[format('{0}.{1}.{2}', variables.majorVersion, variables.minorVersion, variables.patchVersion)]
+  ${{ if and(ne(variables['Build.SourceBranch'], 'refs/heads/master'), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/'))) }}:
+    # Versioning: 1.0.0-pre
+    semVersion: $[format('{0}.{1}.{2}-pre', variables.majorVersion, variables.minorVersion, variables.patchVersion)]
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
+    # Versioning: 1.0.0-pr.000000001
+    semVersion: $[format('{0}.{1}.{2}-pr.{3}', variables.majorVersion, variables.minorVersion, variables.patchVersion, variables['System.PullRequest.PullRequestId'])]
+  buildName: $[format('{0}', variables.semVersion)]
 
 steps:
-- task: bleddynrichards.Assembly-Info-Task.Assembly-Info-Task.Assembly-Info-Task@1
-  displayName: 'Set Assembly Manifest Data'
+- task: Bash@3
+  displayName: 'Print all variables'
   inputs:
-    FileNames: |
-     Tracing.csproj
-     Tracing.Autofac.csproj
-     Tracing.Console.csproj
-     Tracing.xunit.csproj
-     # AssemblyInfo.cs
+    targetType: 'inline'
+    script: 'env | sort'
+   
+- task: Assembly-Info-NetFramework@2
+  displayName: 'Update Assembly Info (.NET Framework)'
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    FileNames: '**\AssemblyInfo.cs'
     InsertAttributes: true
+    FileEncoding: 'auto'
+    WriteBOM: false
     Title: 'Tracing'
     Description: 'Tracing.NET - A simple Logger/Tracer abstraction'
     Company: 'superdev GmbH'
-    Copyright: '(c) $(date:yyyy) superdev GmbH'
+    Copyright: '(c) $(date:YYYY) superdev GmbH'
     VersionNumber: '$(Build.BuildNumber)'
     FileVersionNumber: '$(Build.BuildNumber)'
+    InformationalVersion: '$(Build.BuildNumber)'
+    LogLevel: 'verbose'
+    FailOnWarning: false
+    DisableTelemetry: false
+
+- task: Assembly-Info-NetCore@2
+  displayName: 'Update Assembly Info'
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    FileNames: |
+      **/*.csproj
+    InsertAttributes: true
+    FileEncoding: 'auto'
+    WriteBOM: false
+    Product: 'Tracing'
+    Description: ''
+    Company: 'superdev GmbH'
+    Copyright: '(c) $(date:YYYY) superdev GmbH'
+    VersionNumber: '$(Build.BuildNumber)'
+    FileVersionNumber: '$(Build.BuildNumber)'
+    InformationalVersion: '$(Build.BuildNumber)'
+    PackageVersion: '$(Build.BuildNumber)'
+    LogLevel: 'verbose'
+    FailOnWarning: false
+    DisableTelemetry: false'
+
 
 - task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.4.1'
+  displayName: 'Use NuGet 5.x'
   inputs:
-    versionSpec: 4.4.1
+    versionSpec: 5.x
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: '$(Parameters.solution)'
-
-- powershell: |
-   Write-Host "##vso[task.setvariable variable=PackageVersion]$(Build.BuildNumber)"
-   Write-Host "##vso[task.setvariable variable=PackageVersionPre]$(Build.BuildNumber)$(BuildVersionPostfix)"
-  displayName: 'Set PackageVersion'
+    restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   displayName: 'Build solution'
@@ -64,29 +106,22 @@ steps:
     msbuildArgs: ''
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
-
+    
 - task: DotNetCoreCLI@2
   displayName: 'Run UnitTests'
+  continueOnError: false
   inputs:
     command: test
-    projects: '**/Tracing.Tests.csproj'
-    arguments: ''
-
+    projects: '**/*.Tests.csproj'
+    arguments: '--no-restore --no-build --configuration $(buildConfiguration)'
+    
 - task: DotNetCoreCLI@2
-  displayName: 'Pack NuGet PreRelease'
+  displayName: 'Pack Tracing'
   inputs:
     command: pack
     packagesToPack: Tracing\*.csproj;Tracing.Extensions\**\*.csproj
     versioningScheme: byEnvVar
-    versionEnvVar: PackageVersionPre
-
-- task: DotNetCoreCLI@2
-  displayName: 'Pack NuGet Prod'
-  inputs:
-    command: pack
-    packagesToPack: Tracing\*.csproj;Tracing.Extensions\**\*.csproj
-    versioningScheme: byEnvVar
-    versionEnvVar: PackageVersion
+    versionEnvVar: semVersion
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
@@ -99,7 +134,5 @@ steps:
 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-

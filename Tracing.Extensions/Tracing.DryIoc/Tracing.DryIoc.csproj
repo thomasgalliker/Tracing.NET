@@ -32,11 +32,12 @@
     <RootNamespace>Tracing.DryIoc</RootNamespace>
     <PackageReleaseNotes>2.0.0
 - Initial release</PackageReleaseNotes>
-    <Copyright>Copyright 2019</Copyright>
+    <Copyright>Copyright 2021</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DryIoc.dll" Version="[4.0.0,)" />
+    <PackageReference Include="DryIoc.dll" Version="4.8.0" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
